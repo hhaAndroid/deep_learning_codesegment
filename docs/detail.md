@@ -41,7 +41,7 @@ ImageHelper.show_bbox(img, bbox_list, color=(255, 0, 0), font_scale=0.2, thickne
 
 ​    分类问题中，对于类别不平衡问题，采用acc指标是不够的，pr曲线和roc曲线绘制来评估模型性能比较关键。
 
-核心内容可以参考知乎文章：https://zhuanlan.zhihu.com/p/34655990，我简单写了下，链接为https://www.zybuluo.com/huanghaian/note/1736925
+核心内容可以参考知乎文章：https://zhuanlan.zhihu.com/p/34655990 ，我简单写了下，链接为 https://www.zybuluo.com/huanghaian/note/1736925
 
    
 
