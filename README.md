@@ -20,6 +20,8 @@ Code segment are often used in deep learning algorithms(pytorch/numpy)
 
 注意：本仓库代码不一定是本人写的，可能来自很多库，我主要是借鉴和学习，每个借鉴代码都会注释来做何处。每个新增函数都会进行测试，再上传，保证质量。
 
+**每个函数或者类都有对应的测试代码，在tools文件夹下**
+
 ## 摘要
 
 [detail](docs/detail.md)   
@@ -31,3 +33,8 @@ Code segment are often used in deep learning algorithms(pytorch/numpy)
 ### 2. img_show
 
 ​    opencv写的图片显示功能，支持单张图、多张图、多张图合并、多张图自定义行列数显示功能；支持bbox显示
+
+### 3 pr_roc
+
+​    二分类问题绘制pr和roc曲线，以及auc指标
+

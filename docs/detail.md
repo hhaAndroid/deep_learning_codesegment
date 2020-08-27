@@ -36,3 +36,12 @@ ImageHelper.show_bbox(img, bbox_list, color=(255, 0, 0), font_scale=0.2, thickne
 ImageHelper.show_bbox(img, bbox_list, color=(255, 0, 0), font_scale=0.2, thickness=1,is_without_mask=True)
 ```
 
+## 3 pr_roc
+[c3_pr_roc](../library/c3_pr_roc.py) 
+
+​    分类问题中，对于类别不平衡问题，采用acc指标是不够的，pr曲线和roc曲线绘制来评估模型性能比较关键。
+
+核心内容可以参考知乎文章：https://zhuanlan.zhihu.com/p/34655990，我简单写了下，链接为https://www.zybuluo.com/huanghaian/note/1736925
+
+   
+
