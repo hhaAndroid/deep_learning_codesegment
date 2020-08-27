@@ -20,10 +20,10 @@ Code segment are often used in deep learning algorithms(pytorch/numpy)
 
 注意：本仓库代码不一定是本人写的，可能来自很多库，我主要是借鉴和学习，每个借鉴代码都会注释来做何处。每个新增函数都会进行测试，再上传，保证质量。
 
+## 摘要
 
+[detail](docs/detail.md)   
 
-## 1. acc_topk
+### 1. acc_topk
 
-[1.acc_topk](lib/1.acc_topk.py)   
-
-分类任务中经常需要计算topk acc指标，本函数支持输入list来计算得到任意topk的acc指标
+​	分类任务中经常需要计算topk acc指标，本函数支持输入list来计算得到任意topk的acc指标
