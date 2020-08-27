@@ -285,3 +285,52 @@ class ImageHelper(object):
             merge_imgs = np.vstack(merge_imgs_col)
 
         return merge_imgs
+
+    @staticmethod
+    # 可视化显示相关
+    def show_bbox(image, bboxs_list, color=None,
+                  thickness=1, font_scale=0.3, wait_time_ms=0, names=None,
+                  is_show=True, is_without_mask=False):
+        """
+        Visualize bbox in object detection by drawing rectangle.
+
+        :param image: numpy.ndarray.
+        :param bboxs_list: list: [pts_xyxy, prob, id]: label or prediction.
+        :param color: tuple.
+        :param thickness: int.
+        :param fontScale: float.
+        :param wait_time_ms: int
+        :param names: string: window name
+        :param is_show: bool: whether to display during middle process
+        :return: numpy.ndarray
+        """
+        assert image is not None
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        image_copy = image.copy()
+        for bbox in bboxs_list:
+            if len(bbox) == 5:
+                txt = '{:.3f}'.format(bbox[4])
+            elif len(bbox) >= 6:
+                txt = 'p={:.3f},id={:.3f}'.format(bbox[4], bbox[5])
+            bbox_f = np.array(bbox[:4], np.int32)
+            if color is None:
+                colors = random_color(rgb=True).astype(np.float64)
+            else:
+                colors = color
+
+            if not is_without_mask:
+                image_copy = cv2.rectangle(image_copy, (bbox_f[0], bbox_f[1]), (bbox_f[2], bbox_f[3]), colors,
+                                           thickness)
+            else:
+                mask = np.zeros_like(image_copy, np.uint8)
+                mask1 = cv2.rectangle(mask, (bbox_f[0], bbox_f[1]), (bbox_f[2], bbox_f[3]), colors, -1)
+                mask = np.zeros_like(image_copy, np.uint8)
+                mask2 = cv2.rectangle(mask, (bbox_f[0], bbox_f[1]), (bbox_f[2], bbox_f[3]), colors, thickness)
+                mask2 = cv2.addWeighted(mask1, 0.5, mask2, 8, 0.0)
+                image_copy = cv2.addWeighted(image_copy, 1.0, mask2, 0.6, 0.0)
+            if len(bbox) == 5 or len(bbox) == 6:
+                cv2.putText(image_copy, txt, (bbox_f[0], bbox_f[1] - 2),
+                            font, font_scale, (255, 255, 255), thickness=thickness, lineType=cv2.LINE_AA)
+        if is_show:
+            ImageHelper.show_img(image_copy, names, wait_time_ms)
+        return image_copy
