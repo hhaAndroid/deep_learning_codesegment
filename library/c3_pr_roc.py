@@ -11,19 +11,19 @@ def calc_PR_curve(pred, label):
     recall = []
     tp = 0
     fp = 0
-    auc = 0
+    ap = 0  # 平均精度
     for i in range(len(threshold)):
         if label[i] == 1:
             tp += 1
             recall.append(tp / len(pred))
             precision.append(tp / (tp + fp))
-            auc += (recall[i] - recall[i - 1]) * precision[i]  # 近似曲线下面积
+            ap += (recall[i] - recall[i - 1]) * precision[i]  # 近似曲线下面积
         else:
             fp += 1
             recall.append(tp / len(pred))
             precision.append(tp / (tp + fp))
 
-    return precision, recall, auc
+    return precision, recall, ap
 
 
 def calc_ROC_curve(pred, label):

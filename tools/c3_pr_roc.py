@@ -46,8 +46,8 @@ def demo_pr():
     # plt.ylabel('precision')
     # plt.show()
 
-    precision, recall, auc = calc_PR_curve(positive, target)
-    print(auc)
+    precision, recall, ap = calc_PR_curve(positive, target)
+    print(ap)
     plt.plot(recall, precision)
     plt.xlabel('recall')
     plt.ylabel('precision')
