@@ -92,3 +92,23 @@ print(iou)
 
   使用示例请见tools目录下的对应文件
 
+
+## 6 python_trick
+[c6_python_trick](../library/c6_python_trick.py)    
+
+   收集开发中常用的python稍微高级点的trick
+1. 如何将dict参数自动变成类内部属性？
+通过self.__ dict __.update实现
+2. 如何将字典变成可以属性访问?
+有两种方式：可以直接用第三方库addict实现；也可以自己简化写，核心就是递归+__ getattr __方法
+
+
+## 7 numpy_trick
+
+[c7_numpy_trick](../library/c7_numpy_trick.py)    
+   收集开发中常用的numpy稍微高级点的trick
+
+## 8 torch_trick
+
+[c8_torch_trick](../library/c8_torch_trick.py)    
+   收集开发中常用的torch稍微高级点的trick

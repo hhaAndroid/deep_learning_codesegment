@@ -45,3 +45,18 @@ Code segment are often used in deep learning algorithms(pytorch/numpy)
 ### 5 voc_map
 
    支持voc2007和voc2012两组mAP评估指标计算
+   
+### 6 python_trick
+
+   收集开发中常用的python稍微高级点的trick,
+1. 如何将dict参数自动变成类内部属性？
+2. 如何将字典变成可以属性访问?
+
+
+### 7 numpy_trick
+
+   收集开发中常用的numpy稍微高级点的trick
+
+### 8 torch_trick
+
+   收集开发中常用的torch稍微高级点的trick
