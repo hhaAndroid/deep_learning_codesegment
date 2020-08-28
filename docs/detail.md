@@ -6,7 +6,7 @@
 
 分类任务中经常需要计算topk acc指标，本函数支持输入list来计算得到任意topk的acc指标
 
-## 2. img_show
+## 2 img_show
 
 [c2_img_show](../library/c2_img_show.py)   
 
@@ -43,5 +43,41 @@ ImageHelper.show_bbox(img, bbox_list, color=(255, 0, 0), font_scale=0.2, thickne
 
 核心内容可以参考知乎文章：https://zhuanlan.zhihu.com/p/34655990 ，我简单写了下，链接为 https://www.zybuluo.com/huanghaian/note/1736925
 
-   
+   使用示例请见tools目录下的对应文件
+
+## 4 bbox_iou
+
+[c4_bbox_iou](../library/c4_bbox_iou.py) 
+
+   两组bbox的iou计算函数，目前仅仅包括正矩形bbox iou计算，后面会包括倾斜框iou计算
+
+```python
+pred_bbox3 = np.array([[10, 20, 60, 65, 0.6],
+                           [10, 27, 60, 75, 0.8],
+                           [50, 90, 90, 95, 0.45],
+                           [10, 90, 90, 95, 0.8],
+                           [20, 60, 30, 75, 0.1]])  # xyxy
+gt_bbox3 = np.array([[10, 20, 60, 60],
+                         [50, 70, 90, 95]]).reshape(-1, 4)  # xyxy
+
+iou = bbox_overlaps(pred_bbox3[:, :4], gt_bbox3)
+print(iou)
+```
+
+
+
+## 5 voc_map
+
+[c5_voc_mAP](../library/c5_voc_mAP.py) 
+
+   支持voc2007和voc2012两组mAP评估指标计算 ,需要注意的是本函数实现的mAP指标，并没有考虑面积过小的预测框不算以及gt bbox要忽略的部分。
+
+   本函数主要是出于学习目的写的，基本上都有注释，如果想知道mAP原理，可以参考链接  https://www.zybuluo.com/huanghaian/note/1736925， 我进行了简单说明
+
+   重点摘要：
+
+1. VOC2007的AP计算方法是所谓的11点法即选取Recall >= 0, 0.1, ..., 1的11处Percision的最大值，计算AP=11点处的精度最大值和/11
+2. VOC2012的评估指标就是标准的PR曲线下面积，原理请参考c3
+
+  使用示例请见tools目录下的对应文件
 

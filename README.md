@@ -26,11 +26,11 @@ Code segment are often used in deep learning algorithms(pytorch/numpy)
 
 [detail](docs/detail.md)   
 
-### 1. acc_topk
+### 1 acc_topk
 
 ​	分类任务中经常需要计算topk acc指标，本函数支持输入list来计算得到任意topk的acc指标
 
-### 2. img_show
+### 2 img_show
 
 ​    opencv写的图片显示功能，支持单张图、多张图、多张图合并、多张图自定义行列数显示功能；支持bbox显示
 
@@ -38,3 +38,10 @@ Code segment are often used in deep learning algorithms(pytorch/numpy)
 
 ​    二分类问题绘制pr和roc曲线，以及auc指标
 
+### 4 bbox_iou
+
+   两组bbox的iou计算函数，目前仅仅包括正矩形bbox iou计算，后面会包括倾斜框iou计算
+
+### 5 voc_map
+
+   支持voc2007和voc2012两组mAP评估指标计算

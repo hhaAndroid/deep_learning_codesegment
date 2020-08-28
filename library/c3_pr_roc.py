@@ -15,12 +15,12 @@ def calc_PR_curve(pred, label):
     for i in range(len(threshold)):
         if label[i] == 1:
             tp += 1
-            recall.append(tp / len(pred))
+            recall.append(tp / len(label))
             precision.append(tp / (tp + fp))
             ap += (recall[i] - recall[i - 1]) * precision[i]  # 近似曲线下面积
         else:
             fp += 1
-            recall.append(tp / len(pred))
+            recall.append(tp / len(label))
             precision.append(tp / (tp + fp))
 
     return precision, recall, ap
