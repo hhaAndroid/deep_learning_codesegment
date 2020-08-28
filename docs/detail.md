@@ -36,7 +36,18 @@ ImageHelper.show_bbox(img, bbox_list, color=(255, 0, 0), font_scale=0.2, thickne
 ImageHelper.show_bbox(img, bbox_list, color=(255, 0, 0), font_scale=0.2, thickness=1,is_without_mask=True)
 ```
 
+支持中文
+
+```python
+img = ImageHelper.cv2ImgAddText(img, '这是一个测试中文代码', 10, 10, textSize=8, font='./NotoSansCJK-Bold')
+```
+
+需要注意的是需要字体库支持，我采用的是NotoSansCJK-Bold，后缀是.ttc，ubuntu系统下有，可以查找出来。
+
+
+
 ## 3 pr_roc
+
 [c3_pr_roc](../library/c3_pr_roc.py) 
 
 ​    分类问题中，对于类别不平衡问题，采用acc指标是不够的，pr曲线和roc曲线绘制来评估模型性能比较关键。

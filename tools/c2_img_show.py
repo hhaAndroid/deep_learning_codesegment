@@ -29,6 +29,13 @@ def demo_img_show():
     ImageHelper.show_img([img, img2, img3, img4, img5], is_merge=True, row_col_num=(2, 3))  # 合并显示，指定数目
 
 
+    # 显示中文,需要字体库
+    # 输入图片默认是opencv读出来的bgr格式
+    img = ImageHelper.cv2ImgAddText(img, '这是一个测试中文代码', 10, 10, textSize=8, font='./NotoSansCJK-Bold')
+    ImageHelper.show_img(img)
+
+
+
 def demo_bbox_show():
     input_shape = [400, 400, 3]
     img = np.zeros(input_shape, np.uint8)

@@ -201,6 +201,16 @@ class ImageHelper(object):
         return bgr_img
 
     @staticmethod
+    def cv2ImgAddText(img, text, left, top, textColor=(0, 255, 0), textSize=20, font='./NotoSansCJK-Bold.ttc'):
+        from PIL import Image, ImageDraw, ImageFont
+        if isinstance(img, np.ndarray):  # 判断是否OpenCV图片类型
+            img = Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+        draw = ImageDraw.Draw(img)
+        fontText = ImageFont.truetype(font, textSize, encoding="utf-8")
+        draw.text((left, top), text, textColor, font=fontText)
+        return cv2.cvtColor(np.asarray(img), cv2.COLOR_RGB2BGR)
+
+    @staticmethod
     def show_img(imgs, window_names=None, wait_time_ms=0, is_merge=False, row_col_num=(1, -1)):
         """
         Displays an image or a list of images in specified windows or self-initiated windows.

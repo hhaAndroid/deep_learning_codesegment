@@ -32,7 +32,7 @@ Code segment are often used in deep learning algorithms(pytorch/numpy)
 
 ### 2 img_show
 
-​    opencv写的图片显示功能，支持单张图、多张图、多张图合并、多张图自定义行列数显示功能；支持bbox显示
+​    opencv写的图片显示功能，支持单张图、多张图、多张图合并、多张图自定义行列数显示功能；支持bbox显示；支持中文显示
 
 ### 3 pr_roc
 
