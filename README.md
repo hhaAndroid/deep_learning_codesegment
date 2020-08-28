@@ -51,6 +51,7 @@ Code segment are often used in deep learning algorithms(pytorch/numpy)
    收集开发中常用的python稍微高级点的trick,
 1. 如何将dict参数自动变成类内部属性？
 2. 如何将字典变成可以属性访问?
+3. 复杂dict如何打印的漂亮，更有层次感？
 
 
 ### 7 numpy_trick
